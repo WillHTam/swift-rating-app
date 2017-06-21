@@ -10,9 +10,13 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
+    // App Delegate creates the window where the app's content is drawn and provides a place to respond to state transitions within the app
+    // Creates entry point and run loop that delivers input events to the app with UIApplicationMain
+    // With this class running, the response is the app life cycle.
+    
     var window: UIWindow?
-
+    // This property stores a reference to the app window and represents the root of the app's view hierarchy
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
