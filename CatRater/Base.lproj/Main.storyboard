@@ -48,7 +48,7 @@
                                             <outletCollection property="gestureRecognizers" destination="0j1-ag-iaz" appends="YES" id="BfR-jP-2cW"/>
                                         </connections>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M1f-b4-A9t" customClass="RatingControl" customModule="CatRater" customModuleProvider="target">
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M1f-b4-A9t" customClass="RatingControl" customModule="CatRater" customModuleProvider="target">
                                         <frame key="frameInset" minY="433" width="200" height="110"/>
                                     </stackView>
                                 </subviews>
