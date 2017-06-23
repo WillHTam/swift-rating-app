@@ -8,8 +8,9 @@
 
 import UIKit
 
+// Since we added the stars programatically, Interface Builder doesn't know anything about the contents of the Traing Control. To fix define control as @IBDesignable, which lets IB instantiate and draw a copy of the control directly in the canvas. Then a live copy will be available for IB to properly position and size.
 class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
 // By adding UITextFieldDelegate, compiler knows that ViewController class can be a text field delegate
     
     //By using MARK, it lets you jump to sections above in the > > > menu
