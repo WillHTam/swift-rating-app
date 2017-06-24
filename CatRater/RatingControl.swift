@@ -16,7 +16,12 @@ import UIKit
     //MARK: Properties
     private var ratingButtons = [UIButton]()
     
-    var rating = 0
+    var rating = 0 {
+        didSet {
+            // add a property observer here to call this method whenever the rating changes
+            updateButtonSelectionStates()
+        }
+    }
     
     // Can specify properties that can then be set in the Attributes Inspector with @IBInspectable
     // To update the control, need to reset the buttons every time these attributes change, do it with a Property Observer which are called every time a property's value is set, can do work immediately before or after a value change
@@ -45,7 +50,27 @@ import UIKit
     
     //MARK: Button Action
     func ratingButtonTapped(button: UIButton){
-        print("Button Pressed 👍")
+        // prints this to debugger when button is pressed
+        // print("Button Pressed 👍")
+        
+        // Below, indexOf attempts to find the selected button in the array of buttons and returns the index at which it was found
+        // Error shouldn't occur unless something is seriously wrong
+        // Once the button's index is returned, add 1 to get the rating
+        // If the user taps a star that corresponds with the current rating, reset the rating to 0. Otherwise set the rating as the star you pressed
+        guard let index = ratingButtons.index(of: button) else {
+            fatalError("The button, \(button), is not in the ratingButtons array: \(ratingButtons)")
+        }
+        
+        // Calculate the rating of the selected button
+        let selectedRating = index + 1
+        
+        if selectedRating == rating {
+            // If the selected star represents the current rating, reset the rating to 0.
+            rating = 0
+        } else {
+            // Otherwise set the rating to the selected star
+            rating = selectedRating
+        }
     }
     
     //MARK: Private Methods
@@ -106,7 +131,21 @@ import UIKit
             // Add the new button to the rating button array
             ratingButtons.append(button)
         }
+        // Need to update the button's selection states whenever buttons are added to the view.
+        updateButtonSelectionStates()
     }
+    
+    
+    // Updates the button's appearance, a helper method that updates the selection state
+    // Iterates through the buttons and sets each one's selected state based on its position and the rating.
+    // The selected state affects the buttons' appearance. If the button's index is less than the rating isSelected is true and displays the filledStar image. Otherwise isSelected is false and shows the empty star
+    private func updateButtonSelectionStates() {
+        for (index, button) in ratingButtons.enumerated() {
+            // If the index of a button is less than the rating, that button should be selected
+            button.isSelected = index < rating
+        }
+    }
+    
     
     /*
     // Only override draw() if you perform custom drawing.
@@ -115,5 +154,4 @@ import UIKit
         // Drawing code
     }
     */
-
 }
