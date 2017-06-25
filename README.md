@@ -21,3 +21,7 @@
 - Reviewed creating a second storyboard scene and table view
 - Displayed dynamic data in a table view
 - Adding assets to the project
+- Created custom table view cell
+- Attached model object to table view controller
+- Added sample data to the model, and used the controller to dynamically fill
+the table with the model data
