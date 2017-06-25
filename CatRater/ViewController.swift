@@ -19,6 +19,7 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var catNameLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var ratingControl: RatingControl!
     // IBOutlet tells XCode to connect nameTextField to the Interface Builder
     // Weak allows this to be deallocated. The strong reference is held by the object's superview, so if the superview exists so does the object
     // Image (3rd) has no interaction component, if ctrl-dragged 'Action' is not available. Thus a gesture recognizer must be created.

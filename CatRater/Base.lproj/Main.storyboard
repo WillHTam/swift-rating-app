@@ -20,7 +20,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9Vd-cE-giS">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9Vd-cE-giS">
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cat Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQe-AB-Vb5">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -65,6 +65,7 @@
                         <outlet property="catNameLabel" destination="FQe-AB-Vb5" id="RuK-5f-Mvd"/>
                         <outlet property="nameTextField" destination="zYH-A7-Xao" id="WXT-Av-aXU"/>
                         <outlet property="photoImageView" destination="EhV-uf-DCE" id="u5L-Qs-ENL"/>
+                        <outlet property="ratingControl" destination="M1f-b4-A9t" id="wDd-Xo-Vq8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
