@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aly-Ih-Tyq" id="BZg-aR-cxx">
-                                    <frame key="frameInset" width="375" height="89"/>
+                                    <frame key="frameInset" width="375" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="1MZ-1w-ITn">
@@ -41,6 +41,11 @@
                                         </stackView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="wKl-lu-8QP" id="TeU-Q4-YLU"/>
+                                    <outlet property="photoImageView" destination="1MZ-1w-ITn" id="GK4-ir-DPr"/>
+                                    <outlet property="ratingControl" destination="W01-yI-vXY" id="Fm2-Vt-Xym"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -65,8 +70,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9Vd-cE-giS">
-                                <frame key="frameInset" minX="16" minY="40" width="343" height="483"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9Vd-cE-giS">
+                                <frame key="frameInset" minX="16" minY="40" width="343" height="477"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cat Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQe-AB-Vb5">
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -93,9 +98,7 @@
                                             <outletCollection property="gestureRecognizers" destination="0j1-ag-iaz" appends="YES" id="BfR-jP-2cW"/>
                                         </connections>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M1f-b4-A9t" customClass="RatingControl" customModule="CatRater" customModuleProvider="target">
-                                        <frame key="frameInset" minX="46" minY="433" width="252" height="50"/>
-                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M1f-b4-A9t" customClass="RatingControl" customModule="CatRater" customModuleProvider="target"/>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="zYH-A7-Xao" secondAttribute="trailing" id="9z5-We-bMF"/>
