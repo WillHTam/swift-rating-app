@@ -2,7 +2,7 @@
 ### Rate your Cats
 ---
 #### Things I learned this time
-- [https://stackoverflow.com/questions/17735182/could-not-find-any-information-for-class-named-viewcontroller/27578662#27578662](What do if references to the Class are lost)
+- [What to do if references to the Class are lost](https://stackoverflow.com/questions/17735182/could-not-find-any-information-for-class-named-viewcontroller/27578662#27578662)
 - Making the View Controller a delegate for Text Fields and Image Picking
 - Making Action (rather than Outlet) connections to the Interface Builder
 - Making an object a FirstResponder
@@ -21,4 +21,3 @@
 - Reviewed creating a second storyboard scene and table view
 - Displayed dynamic data in a table view
 - Adding assets to the project
-
