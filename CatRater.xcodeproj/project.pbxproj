@@ -40,6 +40,7 @@
 		3DA388F81EFABC440014F096 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DA389011EFC10780014F096 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		3DDC06B71F0026F700D89D65 /* Cat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
+		3DDC06B91F004B3700D89D65 /* CatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +87,7 @@
 				3DA389011EFC10780014F096 /* RatingControl.swift */,
 				3DDC06B71F0026F700D89D65 /* Cat.swift */,
 				3DA388E51EFABC440014F096 /* Main.storyboard */,
+				3DDC06B91F004B3700D89D65 /* CatTableViewCell.swift */,
 				3DA388E81EFABC440014F096 /* Assets.xcassets */,
 				3DA388EA1EFABC440014F096 /* LaunchScreen.storyboard */,
 				3DA388ED1EFABC440014F096 /* Info.plist */,
@@ -207,6 +209,7 @@
 			files = (
 				3DDC06B81F0026F700D89D65 /* Cat.swift in Sources */,
 				3DA388E41EFABC440014F096 /* ViewController.swift in Sources */,
+				3DDC06BA1F004B3700D89D65 /* CatTableViewCell.swift in Sources */,
 				3DA389021EFC10780014F096 /* RatingControl.swift in Sources */,
 				3DA388E21EFABC440014F096 /* AppDelegate.swift in Sources */,
 			);
