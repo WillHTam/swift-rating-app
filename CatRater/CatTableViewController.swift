@@ -48,6 +48,29 @@ class CatTableViewController: UITableViewController {
         return catsArray.count
     }
     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cellIdentifier = "CatTableViewCell"
+        
+        // Because we are using a custom cell class, downcast the type of the cell to CatTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? CatTableViewCell else {
+            fatalError("The dequeued cell is not an instance of CatTableViewCell")
+        }
+        // dequeueReusableCell method requests a cell from the table view. Instead of creating and deleting new cells as the user scrolls, the table tries to reuse the cells when possible.
+        // If no cells are available, the method instantiates a new one, the Identifier tells the method which type of cell it should create or reuse
+        
+        // Fetch the appropriate cat for the data source layout
+        let cat = catsArray[indexPath.row]
+        
+        cell.nameLabel.text = cat.name
+        cell.photoImageView.image = cat.photo
+        cell.ratingControl.rating = cat.rating
+        
+        // Configure cell
+        return cell
+        
+    }
+    
     //MARK: Private Methods
     
     private func loadSampleCats() {
