@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CatViewController.swift
 //  CatRater
 //
 //  Created by William on 21/6/17.
@@ -7,24 +7,36 @@
 //
 
 import UIKit
+import os.log
+// imports unified logging system to send messages to the console
 
 // Since we added the stars programatically, Interface Builder doesn't know anything about the contents of the Traing Control. To fix define control as @IBDesignable, which lets IB instantiate and draw a copy of the control directly in the canvas. Then a live copy will be available for IB to properly position and size.
-class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class CatViewController: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
 // By adding UITextFieldDelegate, compiler knows that ViewController class can be a text field delegate
     
     //By using MARK, it lets you jump to sections above in the > > > menu
     
     //MARK: Properties
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var catNameLabel: UILabel!
-    @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var ratingControl: RatingControl!
     // IBOutlet tells XCode to connect nameTextField to the Interface Builder
     // Weak allows this to be deallocated. The strong reference is held by the object's superview, so if the superview exists so does the object
     // Image (3rd) has no interaction component, if ctrl-dragged 'Action' is not available. Thus a gesture recognizer must be created.
     // Gesture recognizers are objects you attach to a view that respond to input like a control. Gesture recognizers interpret touches and determine whether they correspond to an action like a swipe pinch or rotation
     // Added a 'Tap Gesture Recognizer' from the object library
+    @IBOutlet weak var nameTextField: UITextField!
+    // @IBOutlet weak var catNameLabel: UILabel!
+    @IBOutlet weak var photoImageView: UIImageView!
+    @IBOutlet weak var ratingControl: RatingControl!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    
+    /*
+        This value is either passed by 'CatTableViewController' in
+            `prepare(for:sender:)`
+        or constructed as part of adding a new meal.
+        The Cat Property here is an optional which means at any point it could be nil.
+     */
+    var cat: Cat?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,16 +58,46 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         // Boolean indicates whether the system should process press of Return key, which we always do so it is true
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        catNameLabel.text = textField.text
-        // after finishing typing and pressing Done, changes title to whatever is in the text field
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        catNameLabel.text = textField.text
+//        // after finishing typing and pressing Done, changes title to whatever is in the text field
+//    }
+    
+    //MARK: Navigation
+    
+    /*
+        Need to pass Meal object to MealTableViewController when user taps Save, and discard with Cancel & navigate back to meal list.
+        Do it with an Unwind Segue, which moves back through segues to return the user to a scene manage by an existing view controller. While regular segues create a new instance of the destination view controller, unwind segues return the user to view controllers that already exist.
+        Below uses prepare method to store data and execute any code as part of the segue
+    */
+    // Configures the view before it's presented
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        // This verifies that the sender is a button, then uses === to check that the objects referenced by sender and saveButton are the same. Otherwise, print out the debug message
+        guard let button = sender as? UIBarButtonItem, button === saveButton else {
+            os_log("The save button was not presed, cancelling", log: OSLog.default, type: .debug)
+            return
+        }
+        
+        // Constants take their value from the input fields
+        // The nil coalescing operator (??) returns the value of an optional if the optional has a vlue, or return a defult value otherwise. Here it unwraps whatever is in the text field, which it sets if there is a valid string but returns an empty string otherwise
+        let name = nameTextField.text ?? ""
+        let photo = photoImageView.image
+        let rating = ratingControl.rating
+        
+        // Set the cat to be passed to CatTableViewController after the unwind segue
+        // Since the Cat class' initializer is failable, it can fail any of the conditions there
+        cat = Cat(name: name, photo: photo, rating: rating)
     }
     
     //MARK: Actions
-    @IBAction func setDefaultLabelText(_ sender: UIButton) {
-        catNameLabel.text = "Default Text"
-        // Didn't have to specify type of "Default Text" because it was inferred to be string.
-    }
+    
+    // Removed button that changes Label above Text Entry to 'Default Text'
+//    @IBAction func setDefaultLabelText(_ sender: UIButton) {
+//        catNameLabel.text = "Default Text"
+//        // Didn't have to specify type of "Default Text" because it was inferred to be string.
+//    }
     // Ctrl clicked from Button, Changed from 'Outlet' to 'Action' and changed "Any Object" to "UIButton"
     // Triggered whenever the user interacts with the object this action method is attached to
     // an example of target-action in iOS design
@@ -82,11 +124,13 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     // Dragged from the 'Gesture Recognizer' square in the storyboard scene dock
     
     //MARK: UIImagePickerControllerDelegate
+    
     //Called on user cancelling image select
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         // Dismiss the picker if the user cancels
         dismiss(animated: true, completion: nil)
     }
+    
     // Called when user selects photo, in this case display in image view
     // To use this, must have permission to access the user's photo library, do so from the Info.plist. Add 'Privacy - Photo Library Usage Description', Type: String, and add the reason of why you need this permission in Value
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {

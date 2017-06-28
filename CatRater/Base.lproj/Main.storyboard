@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="P5O-9N-GX2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="90B-FI-q0i">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Cat Table View Controller-->
+        <!--Your Cats-->
         <scene sceneID="QgH-zd-Gka">
             <objects>
                 <tableViewController id="P5O-9N-GX2" customClass="CatTableViewController" customModule="CatRater" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CatTableViewCell" rowHeight="90" id="aly-Ih-Tyq" customClass="CatTableViewCell" customModule="CatRater" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="90"/>
+                                <rect key="frame" x="0.0" y="92" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aly-Ih-Tyq" id="BZg-aR-cxx">
                                     <frame key="frameInset" width="375" height="89.5"/>
@@ -53,15 +53,22 @@
                             <outlet property="delegate" destination="P5O-9N-GX2" id="grE-BM-Hgu"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Your Cats" id="R8H-C0-QYo">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vLY-Ho-y7k">
+                            <connections>
+                                <segue destination="FBx-l0-PcY" kind="presentation" identifier="AddItem" id="jOc-jQ-l3w"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QaP-FZ-Wve" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-671.20000000000005" y="94.902548725637189"/>
+            <point key="canvasLocation" x="268" y="94.902548725637189"/>
         </scene>
-        <!--View Controller-->
+        <!--New Cat-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CatRater" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CatViewController" customModule="CatRater" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -70,25 +77,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9Vd-cE-giS">
-                                <frame key="frameInset" minX="16" minY="40" width="343" height="483"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9Vd-cE-giS">
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cat Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FQe-AB-Vb5">
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Cat Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zYH-A7-Xao">
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardAppearance="alert" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UfN-R1-LO2">
-                                        <state key="normal" title="Set Default Label Text"/>
-                                        <connections>
-                                            <action selector="setDefaultLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Cd-8w-2MP"/>
-                                        </connections>
-                                    </button>
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="EhV-uf-DCE">
                                         <gestureRecognizers/>
                                         <constraints>
@@ -98,9 +93,7 @@
                                             <outletCollection property="gestureRecognizers" destination="0j1-ag-iaz" appends="YES" id="BfR-jP-2cW"/>
                                         </connections>
                                     </imageView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M1f-b4-A9t" customClass="RatingControl" customModule="CatRater" customModuleProvider="target">
-                                        <frame key="frameInset" minX="46" minY="433" width="252" height="50"/>
-                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M1f-b4-A9t" customClass="RatingControl" customModule="CatRater" customModuleProvider="target"/>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="zYH-A7-Xao" secondAttribute="trailing" id="9z5-We-bMF"/>
@@ -114,11 +107,15 @@
                             <constraint firstAttribute="trailingMargin" secondItem="9Vd-cE-giS" secondAttribute="trailing" id="uns-kd-zKn"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="New Cat" id="8n1-oY-d7k">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ova-1Z-bde"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="7rG-TV-TsD"/>
+                    </navigationItem>
                     <connections>
-                        <outlet property="catNameLabel" destination="FQe-AB-Vb5" id="RuK-5f-Mvd"/>
                         <outlet property="nameTextField" destination="zYH-A7-Xao" id="WXT-Av-aXU"/>
                         <outlet property="photoImageView" destination="EhV-uf-DCE" id="u5L-Qs-ENL"/>
                         <outlet property="ratingControl" destination="M1f-b4-A9t" id="wDd-Xo-Vq8"/>
+                        <outlet property="saveButton" destination="7rG-TV-TsD" id="HL4-d6-COf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -128,7 +125,43 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="94.902548725637189"/>
+            <point key="canvasLocation" x="2015.2" y="94.902548725637189"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rRI-9w-qef">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="90B-FI-q0i" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oRJ-nz-GR3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="P5O-9N-GX2" kind="relationship" relationship="rootViewController" id="VnQ-Dt-b8S"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Zbr-3S-dvx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-671.20000000000005" y="94.902548725637189"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Xq0-nb-GDD">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FBx-l0-PcY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="8i0-iy-73J">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="LDO-Hq-RMW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1GF-Qg-2Z1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="94.902548725637189"/>
         </scene>
     </scenes>
     <resources>

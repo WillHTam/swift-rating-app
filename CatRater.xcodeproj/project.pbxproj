@@ -15,7 +15,7 @@
 		3DD875501F00604400A08CED /* CatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD8754B1F00604400A08CED /* CatTableViewController.swift */; };
 		3DD875511F00604400A08CED /* CatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD8754C1F00604400A08CED /* CatTableViewCell.swift */; };
 		3DD875521F00604400A08CED /* Cat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD8754D1F00604400A08CED /* Cat.swift */; };
-		3DD875531F00604400A08CED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD8754E1F00604400A08CED /* ViewController.swift */; };
+		3DD875531F00604400A08CED /* CatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD8754E1F00604400A08CED /* CatViewController.swift */; };
 		3DD875541F00604400A08CED /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DD8754F1F00604400A08CED /* RatingControl.swift */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +42,7 @@
 		3DD8754B1F00604400A08CED /* CatTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatTableViewController.swift; sourceTree = "<group>"; };
 		3DD8754C1F00604400A08CED /* CatTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatTableViewCell.swift; sourceTree = "<group>"; };
 		3DD8754D1F00604400A08CED /* Cat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
-		3DD8754E1F00604400A08CED /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		3DD8754E1F00604400A08CED /* CatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CatViewController.swift; sourceTree = "<group>"; };
 		3DD8754F1F00604400A08CED /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,7 +88,7 @@
 				3DD8754B1F00604400A08CED /* CatTableViewController.swift */,
 				3DD8754C1F00604400A08CED /* CatTableViewCell.swift */,
 				3DD8754D1F00604400A08CED /* Cat.swift */,
-				3DD8754E1F00604400A08CED /* ViewController.swift */,
+				3DD8754E1F00604400A08CED /* CatViewController.swift */,
 				3DD8754F1F00604400A08CED /* RatingControl.swift */,
 				3DA388E11EFABC440014F096 /* AppDelegate.swift */,
 				3DA388E51EFABC440014F096 /* Main.storyboard */,
@@ -211,7 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DD875531F00604400A08CED /* ViewController.swift in Sources */,
+				3DD875531F00604400A08CED /* CatViewController.swift in Sources */,
 				3DD875521F00604400A08CED /* Cat.swift in Sources */,
 				3DD875501F00604400A08CED /* CatTableViewController.swift in Sources */,
 				3DD875511F00604400A08CED /* CatTableViewCell.swift in Sources */,
