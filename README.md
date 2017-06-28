@@ -23,5 +23,7 @@
 - Adding assets to the project
 - Created custom table view cell
 - Attached model object to table view controller
-- Added sample data to the model, and used the controller to dynamically fill
-the table with the model data
+- Added sample data to the model, and used the controller to dynamically fill the table with the model data
+- Added segues and unwind segues with IB and prepare(for segue:)
+- Private functions with guard
+- 
