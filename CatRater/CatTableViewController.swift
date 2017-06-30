@@ -106,6 +106,29 @@ class CatTableViewController: UITableViewController {
     
     //MARK: Actions
     
+    // Part of creating the unwind segue is to add an action method to the DESTINATION view controller ( the view controller that the segue is going to )
+    // This method has the logic to add the cat (passed from CatViewController, the source view controller) to the cat list data and add a new row to the table view in the cat list scene
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
+        
+        // about the if statement below:
+        // Uses optional type operator (as?) to try to downcat the segue's source view controller to a CatViewController instance. 
+        // Need to downcat because sender.sourceViewController is of type UIViewController, but need to work with a CatViewController
+        // The operator returns an optional value, which will be 'nil' if the downcast wasn't possible. If it succeeds, the code assigns the CatViewController to the local constant sourceViewController, and chekcs to see if the meal property on sourceViewController is nil
+        // If the meal property is non-nil, the code assigns the value of that property to the local constant 'cat' and executes the if statement
+        // If either the downcast or mea in sourceViewController is nil, the if statement doesn't get executed
+        
+        if let sourceViewController = sender.source as? CatViewController, let cat = sourceViewController.cat {
+            
+            // Add a new cat.
+            // This code computes the location where the new table view representing the new meal will be inserted, and stores it in a local constant called newIndexPath
+            let newIndexPath = IndexPath(row: catsArray.count, section: 0)
+            
+            // Adds the new cat to the existing list of cats in the data model.
+            catsArray.append(cat)
+            // Animates the addition of a new row to the table view for the cell that contains information about the new meal. 
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            
+        }
+        
     }
 }

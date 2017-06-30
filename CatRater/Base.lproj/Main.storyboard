@@ -109,7 +109,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Cat" id="8n1-oY-d7k">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ova-1Z-bde"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="7rG-TV-TsD"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="7rG-TV-TsD">
+                            <connections>
+                                <segue destination="amw-Vr-y0n" kind="unwind" unwindAction="unwindToMealListWithSender:" id="duH-dT-Nug"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="nameTextField" destination="zYH-A7-Xao" id="WXT-Av-aXU"/>
@@ -119,6 +123,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="amw-Vr-y0n" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="0j1-ag-iaz">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="0EC-iW-IcJ"/>
