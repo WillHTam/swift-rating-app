@@ -108,7 +108,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Cat" id="8n1-oY-d7k">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ova-1Z-bde"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ova-1Z-bde">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="VUp-7k-1Ed"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="7rG-TV-TsD">
                             <connections>
                                 <segue destination="amw-Vr-y0n" kind="unwind" unwindAction="unwindToMealListWithSender:" id="duH-dT-Nug"/>

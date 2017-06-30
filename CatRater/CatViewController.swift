@@ -44,12 +44,21 @@ class CatViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
         // Handle the text field's user input through delegate callbacks
         // I.e. when ViewController is loaded, it sets itself as delegate of nameTextField property
         nameTextField.delegate = self
+        
+        // Enable the Save button only if the text field has a valid Cat name
+        updateSaveButtonState()
     }
 
     // iOS is based on event-driven programming, where the flow of the app is determined by actions
     
     //MARK: UITextFieldDelegate
     // When a user taps the text field, it becomes the first responder which is responsible for handling many events
+    
+    // This gets called when editing begins or keyboard is displayed
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // Disable Save button while editing
+        saveButton.isEnabled = false
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         // Hide the keyboard
@@ -58,12 +67,22 @@ class CatViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
         // Boolean indicates whether the system should process press of Return key, which we always do so it is true
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        updateSaveButtonState()
+        navigationItem.title = textField.text
+    }
+    
 //    func textFieldDidEndEditing(_ textField: UITextField) {
 //        catNameLabel.text = textField.text
 //        // after finishing typing and pressing Done, changes title to whatever is in the text field
 //    }
     
     //MARK: Navigation
+    
+    @IBAction func cancel(_ sender: UIBarButtonItem) {
+        // Dismisses the modal scene and animates the transition back to the previous scene
+        dismiss(animated: true, completion: nil)
+    }
     
     /*
         Need to pass Meal object to MealTableViewController when user taps Save, and discard with Cancel & navigate back to meal list.
@@ -145,6 +164,13 @@ class CatViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
         
         // Dismiss the picker
         dismiss(animated: true, completion: nil)
+    }
+    
+    //MARK: Private Methods
+    private func updateSaveButtonState() {
+        // Disable the Save button if the text field is empty
+        let text = nameTextField.text ?? ""
+        saveButton.isEnabled = !text.isEmpty
     }
 }
 
