@@ -45,6 +45,14 @@ class CatViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
         // I.e. when ViewController is loaded, it sets itself as delegate of nameTextField property
         nameTextField.delegate = self
         
+        // Set up views if editing an existing cat
+        if let cat = cat {
+            navigationItem.title = cat.name
+            nameTextField.text = cat.name
+            photoImageView.image = cat.photo
+            ratingControl.rating = cat.rating
+        }
+        
         // Enable the Save button only if the text field has a valid Cat name
         updateSaveButtonState()
     }

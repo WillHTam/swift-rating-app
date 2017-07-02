@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
     // Now we have the data model 'Cat'. Also need to keep a list of those cats, which we will keep track of in a custom view controller subclass that is connected to the cat list scene. This view controller will manage the view that displays the list of cats, and have a reference to the data model behind what's shown in the user interface.
 
@@ -70,6 +71,46 @@ class CatTableViewController: UITableViewController {
         return cell
         
     }
+    
+    //MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        // This switch simplifies the logic so there is no need to deal with optionals insid the cases
+        // If the identifier is 'nil', ?? replaces it with an empty string
+        switch(segue.identifier ?? "") {
+            
+        case "AddItem":
+        os_log("Adding a new meal.", log: OSLog.default, type: .debug)
+        // If adding an item to the cat list, no need to change the Cat detail scene's appearance, just log this message to note when it happens
+        
+        /*
+            Below, if editing an existing cat, need to display the cats' data in the cat detail scene. This code gets the destination view controller, the selected cat cell, and the index path of the selected cell. The guard statements check that all the downcasts work and that all optionals contain non-nil values.
+            If the storyboard is set up correctly, none of the gaurd statements will fail.
+            As soon as the index path is found, can look up the cat object for that path and pass it to the destination view controller
+        */
+        case "ShowDetail":
+            guard let catDetailViewController = segue.destination as? CatViewController else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedCatCell = sender as? CatTableViewCell else {
+                fatalError("Unexpected sender: \(sender)")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedCatCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let selectedCat = catsArray[indexPath.row]
+            catDetailViewController.cat = selectedCat
+            
+            default:
+            fatalError("Unexpected Segue Identifier; \(segue.identifier)")
+        }
+    }
+    
+    
     
     //MARK: Private Methods
     
