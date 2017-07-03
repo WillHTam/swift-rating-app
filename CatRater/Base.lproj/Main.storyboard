@@ -171,13 +171,13 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1GF-Qg-2Z1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1119" y="447"/>
+            <point key="canvasLocation" x="1130" y="526"/>
         </scene>
     </scenes>
     <resources>
         <image name="defaultPhoto" width="540" height="540"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dVU-Ei-SM8"/>
+        <segue reference="LDO-Hq-RMW"/>
     </inferredMetricsTieBreakers>
 </document>
