@@ -36,7 +36,7 @@ class CatTableViewController: UITableViewController {
         
         // Load the sample data
         // When the view loads, this code calls the helper method to load the initial data
-        loadSampleCats()
+        // loadSampleCats() > removed because of else statement above
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
