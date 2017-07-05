@@ -23,7 +23,17 @@ class CatTableViewController: UITableViewController {
         
         // Use the edit button item provided by table view controller
         navigationItem.leftBarButtonItem = editButtonItem
-
+        
+        // Load any saved meals, otherwise load sample data
+        if let savedCats = loadCats() {
+            // If loadCats() successfully returns an array of Cat objects, this is true. False is nil.
+            // Then add any cats that were successfully loaded into Cats array
+            catsArray += savedCats
+        } else {
+            // Load the sample data.
+            loadSampleCats()
+        }
+        
         // Load the sample data
         // When the view loads, this code calls the helper method to load the initial data
         loadSampleCats()
@@ -40,11 +50,13 @@ class CatTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // Override to support editing the table view.
     // Delete from table view using TableViewController/navigationItem method
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             catsArray.remove(at: indexPath.row)
+            saveCats()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it inot the arrya, and add a new row to teh table view
@@ -130,44 +142,8 @@ class CatTableViewController: UITableViewController {
         }
     }
     
-    
-    
-    //MARK: Private Methods
-    
-    private func loadSampleCats() {
-        
-        let photo1 = UIImage(named: "cat1")
-        let photo2 = UIImage(named: "cat2")
-        let photo3 = UIImage(named: "cat3")
-        let photo4 = UIImage(named: "cat4")
-        let photo5 = UIImage(named: "cat5")
-        
-        guard let cat1 = Cat(name: "Nice Kitten", photo: photo1, rating: 4) else {
-            fatalError("Unable to instantiate cat1")
-        }
-        
-        guard let cat2 = Cat(name: "Scottish Fold", photo: photo2, rating: 5) else {
-            fatalError("Unable to instantiate cat1")
-        }
-        
-        guard let cat3 = Cat(name: "Snowflake", photo: photo3, rating: 5) else {
-            fatalError("Unable to instantiate cat1")
-        }
-        
-        guard let cat4 = Cat(name: "Super Cat", photo: photo4, rating: 3) else {
-            fatalError("Unable to instantiate cat1")
-        }
-        
-        guard let cat5 = Cat(name: "Orange Loaf", photo: photo5, rating: 2) else {
-            fatalError("Unable to instantiate cat1")
-        }
-        
-        catsArray += [cat1, cat2, cat3, cat4, cat5]
-    }
-    
     //MARK: Actions
-    
-    
+
     //  ************ UNWIND START ****************
     
     // Part of creating the unwind segue is to add an action method to the DESTINATION view controller ( the view controller that the segue is going to )
@@ -210,8 +186,65 @@ class CatTableViewController: UITableViewController {
 //            catsArray.append(cat)
 //            // Animates the addition of a new row to the table view for the cell that contains information about the new cat. 
 //            tableView.insertRows(at: [newIndexPath], with: .automatic)
-            
+           
+            // Save the cats.
+            saveCats()
+        }
+    }
+    
+    // ********** UNWIND END *****************
+    
+    
+    //MARK: Private Methods
+    
+    private func loadSampleCats() {
+        
+        let photo1 = UIImage(named: "cat1")
+        let photo2 = UIImage(named: "cat2")
+        let photo3 = UIImage(named: "cat3")
+        let photo4 = UIImage(named: "cat4")
+        let photo5 = UIImage(named: "cat5")
+        
+        guard let cat1 = Cat(name: "Nice Kitten", photo: photo1, rating: 4) else {
+            fatalError("Unable to instantiate cat1")
         }
         
+        guard let cat2 = Cat(name: "Scottish Fold", photo: photo2, rating: 5) else {
+            fatalError("Unable to instantiate cat2")
+        }
+        
+        guard let cat3 = Cat(name: "Snowflake", photo: photo3, rating: 5) else {
+            fatalError("Unable to instantiate cat3")
+        }
+        
+        guard let cat4 = Cat(name: "Super Cat", photo: photo4, rating: 3) else {
+            fatalError("Unable to instantiate cat4")
+        }
+        
+        guard let cat5 = Cat(name: "Orange Loaf", photo: photo5, rating: 2) else {
+            fatalError("Unable to instantiate cat5")
+        }
+        
+        catsArray += [cat1, cat2, cat3, cat4, cat5]
+    }
+    
+    private func saveCats() {
+        
+        // This attempts to archive the catsArray to a specific location, and returns true if successful
+        // Uses the Cat.ArchiveUrl defined in the Cat class to identify where to save the information
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(catsArray, toFile: Cat.ArchiveURL.path)
+        
+        if isSuccessfulSave {
+            os_log("Cat List successfully saved.", log: OSLog.default, type: .debug)
+        } else {
+            os_log("Failed to save Cat List...", log: OSLog.default, type: .error)
+        }
+    }
+    
+    // Returns optional array of Cat objects
+    private func loadCats() -> [Cat]? {
+        // Below attempts ot unarchive the object stored at Cat.ArchiveURL.path and downcast that into an array of Cat objects. 
+        // Uses as? so that it can return nil if the downcast fails, most likely if no array has been saved
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Cat.ArchiveURL.path) as? [Cat]
     }
 }

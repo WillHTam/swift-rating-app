@@ -273,11 +273,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CatRater/CatTableViewController.swift"
-            timestampString = "520931519.986047"
+            timestampString = "520936467.701207"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
             landmarkName = "unwindToCatList(sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -289,13 +289,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CatRater/CatTableViewController.swift"
-            timestampString = "520931519.986047"
+            timestampString = "520936467.701207"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "108"
+            endingLineNumber = "108"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CatRater/Cat.swift"
+            timestampString = "520936467.701207"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "Cat"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
