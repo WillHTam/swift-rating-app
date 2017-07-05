@@ -33,7 +33,7 @@ class CatViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
     /*
         This value is either passed by 'CatTableViewController' in
             `prepare(for:sender:)`
-        or constructed as part of adding a new meal.
+        or constructed as part of adding a new cat.
         The Cat Property here is an optional which means at any point it could be nil.
      */
     var cat: Cat?
@@ -46,6 +46,7 @@ class CatViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
         nameTextField.delegate = self
         
         // Set up views if editing an existing cat
+        // If the cat property is non-nil, the code sets each f the views in CatViewControll erto display data from the cat property. Only non-nil when an existing cat is being eidted.
         if let cat = cat {
             navigationItem.title = cat.name
             nameTextField.text = cat.name
@@ -93,7 +94,7 @@ class CatViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
     }
     
     /*
-        Need to pass Meal object to MealTableViewController when user taps Save, and discard with Cancel & navigate back to meal list.
+        Need to pass Cat object to CatTableViewController when user taps Save, and discard with Cancel & navigate back to cat list.
         Do it with an Unwind Segue, which moves back through segues to return the user to a scene manage by an existing view controller. While regular segues create a new instance of the destination view controller, unwind segues return the user to view controllers that already exist.
         Below uses prepare method to store data and execute any code as part of the segue
     */

@@ -14,6 +14,7 @@
 - Set Button images with button.setImage and traitCollection
 - UI Elements like a 5-Star rating system, customizing keyboard elements
 - Setting accessibiltyLabel, Hint, & Value to enable VoiceOver for people with disabilities
+- Nearly went insane reading and writing the word 'cat' so many times
 - Adding objects to a stack view to auto-group them in the UI and then using attributes and pin/constraints to position them. Also auto-resolving frames often.
 - Created a data model which stores the information that is displayed
 - Made a failable initializer for the class which could return nil

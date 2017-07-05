@@ -116,7 +116,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="7rG-TV-TsD">
                             <connections>
-                                <segue destination="amw-Vr-y0n" kind="unwind" unwindAction="unwindToMealListWithSender:" id="duH-dT-Nug"/>
+                                <segue destination="amw-Vr-y0n" kind="unwind" unwindAction="unwindToCatListWithSender:" id="duH-dT-Nug"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
