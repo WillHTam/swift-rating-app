@@ -10,6 +10,7 @@
 - Attaching a Gesture Recognizer to an image
 - Using IBDesignable on a class that IB can't see
 - Using IBInspectable to let IB control the attributes
+- Understanding that some segues that I thought might be applied automaticallly actually have to be manually connected
 - Gave Button objects Property Observers
 - Set Button images with button.setImage and traitCollection
 - UI Elements like a 5-Star rating system, customizing keyboard elements

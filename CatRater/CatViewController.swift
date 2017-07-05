@@ -89,8 +89,31 @@ class CatViewController: UIViewController, UITextFieldDelegate, UIImagePickerCon
     //MARK: Navigation
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        // Dismisses the modal scene and animates the transition back to the previous scene
-        dismiss(animated: true, completion: nil)
+        
+        // Depending on style of presentation (modal or push presentation), this view controller needs to be dismissed in two different ways.
+        
+        // This creates a Boolean value that indicates whether the view controller is of type UINavigationController
+        // The name of the variable indicates that this should be true when the cat detail scene is presented by the user tapping the Add button. The presenting view controller is UINavigationCtontroller because the detail scene is embedded in its own navigation controller when brought up.
+        let isPresentingInAddCatMode = presentingViewController is UINavigationController
+        
+        // This if statement checks that the user was adding a new cat before calling dismiss, because dismiss would only work if with adding a new cat
+        if isPresentingInAddCatMode {
+            
+            // Dismisses the modal scene and animates the transition back to the previous scene
+            dismiss(animated: true, completion: nil)
+        
+        } else if let owningNavigationController = navigationController{
+           
+            // This else block is called if the user is editing an existing meal
+            // Else safely unwraps the view controller's navigationController property
+            // If the view controlle rhas been pushed onto a navigation stack, this property contains a reference to the stacks' navigation controller
+            // The code within the else clause executes a method called popViewController which pops the current view navigation stack and animates the transition, which dismisses the meal detail scene and back to the meal list
+            owningNavigationController.popViewController(animated: true)
+        } else {
+            // Only executes if the meal detail was not presented inside a modal navigation controller (new cat) and if thecat detail scene was not pushed onto a navigation stack (edit). So this should only run if there is an error
+            fatalError("The MealViewController is not inside a navigation controller.")
+        }
+        
     }
     
     /*
