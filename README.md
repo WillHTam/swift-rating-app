@@ -31,3 +31,4 @@
 - Make private functions with guard
 - Push scenes onto the navigation stack
 - Present views modally and how to dismiss modals
+- Persist data between app sessions with NSCoding
