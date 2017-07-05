@@ -182,14 +182,14 @@ class CatTableViewController: UITableViewController {
                 
             }
             
-            // Add a new cat.
-            // This code computes the location where the new table view representing the new cat will be inserted, and stores it in a local constant called newIndexPath
-            let newIndexPath = IndexPath(row: catsArray.count, section: 0)
-            
-            // Adds the new cat to the existing list of cats in the data model.
-            catsArray.append(cat)
-            // Animates the addition of a new row to the table view for the cell that contains information about the new cat. 
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
+//            // Add a new cat.
+//            // This code computes the location where the new table view representing the new cat will be inserted, and stores it in a local constant called newIndexPath
+//            let newIndexPath = IndexPath(row: catsArray.count, section: 0)
+//            
+//            // Adds the new cat to the existing list of cats in the data model.
+//            catsArray.append(cat)
+//            // Animates the addition of a new row to the table view for the cell that contains information about the new cat. 
+//            tableView.insertRows(at: [newIndexPath], with: .automatic)
             
         }
         
