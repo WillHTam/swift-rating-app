@@ -32,3 +32,4 @@
 - Push scenes onto the navigation stack
 - Present views modally and how to dismiss modals
 - Persist data between app sessions with NSCoding
+- Encode/decode from storage, add NSCoding to model and table view controller
